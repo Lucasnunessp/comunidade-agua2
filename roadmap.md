@@ -1,0 +1,5 @@
+- [x] Organizar o menu em cinco páginas sem remover as seções existentes do início.
+- [x] Aplicar os quatro logotipos circulares dos coletivos.
+- [x] Mostrar resumos e textos completos solicitados em Projetos.
+- [x] Criar Notícias e atividades com “Em breve”.
+- [x] Verificar navegação, expansão dos projetos e imagens.
