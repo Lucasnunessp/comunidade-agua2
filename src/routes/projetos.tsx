@@ -7,6 +7,12 @@ import foto1 from '@/assets/projetos-foto1.jpg';
 import foto2 from '@/assets/projetos-foto2.jpg';
 import foto3 from '@/assets/projetos-foto3.jpg';
 
+import feiraFoto1 from '@/assets/imagem1.png';
+import feiraFoto2 from '@/assets/imagem2.png';
+import feiraFoto3 from '@/assets/imagem3.png';
+
+const feiraFotos = [feiraFoto1, feiraFoto2, feiraFoto3];
+
 const description = 'Conheça Egbé que Ensina e Feira do Troca, projetos do Centro Cultural Comunidade das Águas que fortalecem a educação e a colaboração na comunidade.';
 const fotos = [
   { src: foto1, alt: 'Grupo caminhando em trilha na mata' },
@@ -59,6 +65,9 @@ function ProjetosPage() {
             </div>
             {expanded[projeto.id] && <div id={`${projeto.id}-details`} className="mt-6">
               <p className="text-lg leading-8 text-tinta/80">{projeto.text}</p>
+              {projeto.id === 'feira' && <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {feiraFotos.map((foto, index) => <img key={foto} src={foto} alt={`Feira do Troca — foto ${index + 1}`} className="aspect-square w-full rounded-lg object-cover" loading="lazy" />)}
+              </div>}
               {projeto.id === 'egbe' && <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {fotos.map((foto) => <img key={foto.src} src={foto.src} alt={foto.alt} className="aspect-square w-full rounded-lg object-cover" />)}
               </div>}
