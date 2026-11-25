@@ -24,7 +24,6 @@ export default function Projetos() {
           coletivos, fortalecendo a comunidade por meio da troca de conhecimentos e experiências.
         </p>
 
-        <h3 className="mt-10 font-display text-2xl sm:text-3xl">Egbé que Ensina</h3>
         <Button asChild className="mt-6">
           <Link to="/projetos" target="_blank" rel="noopener noreferrer">
             Conheça os projetos <ExternalLink size={18} aria-hidden="true" />
