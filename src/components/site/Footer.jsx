@@ -29,10 +29,16 @@ export default function Footer() {
 
         <div className="space-y-3 text-base text-white/80">
           <p className="font-semibold text-white">Contato</p>
-          <p className="flex items-start gap-2">
-            <MapPin className="mt-1 h-4 w-4 shrink-0 text-barro-500" />
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Rua%20Quarenta%20e%20Nove%2C%2040%2C%20Zumbi%20do%20Pacheco%2C%20Jaboat%C3%A3o%20dos%20Guararapes%2C%20PE%2C%20Brasil"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-2 underline-offset-4 hover:underline"
+            aria-label="Abrir endereço da Comunidade das Águas no Google Maps (nova aba)"
+          >
+            <MapPin className="mt-1 h-4 w-4 shrink-0 text-barro-500" aria-hidden="true" />
             Rua Quarenta e Nove, 40 — Zumbi do Pacheco, Jaboatão dos Guararapes — PE
-          </p>
+          </a>
           <p className="flex items-center gap-2">
             <Mail className="h-4 w-4 shrink-0 text-barro-500" />
             <a
