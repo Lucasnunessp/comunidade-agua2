@@ -36,7 +36,9 @@ export default function Footer() {
           <p className="flex items-center gap-2">
             <Mail className="h-4 w-4 shrink-0 text-barro-500" />
             <a
-              href="mailto:c.c.comunidadedasaguas@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=c.c.comunidadedasaguas%40gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="underline-offset-4 break-all hover:underline"
             >
               c.c.comunidadedasaguas@gmail.com
