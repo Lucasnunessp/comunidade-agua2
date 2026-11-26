@@ -4,7 +4,7 @@ import Navbar from '@/components/site/Navbar.jsx'
 const coletivos: Record<string, { nome: string; descricao: string }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
-    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+    descricao: 'Fundada em 2016, a Coletiva Periféricas é composta por mulheres negras, periféricas e candomblecistas, dedicando-se ao mapeamento de dados e à promoção do bem viver na comunidade do Ibura. Entre seus projetos atuais, destacam-se o Mapeando a Ancestralidade na Periferia, que visa mapear os terreiros do Ibura e Jaboatão dos Guararapes, e o Cine Rua Escura, que busca promover a cultura e a visibilidade da produção audiovisual periférica.',
   },
   'espaco-cultural-das-marias': {
     nome: 'Espaço Cultural das Marias',
