@@ -5,8 +5,9 @@ import perifericas from '@/assets/coletivo-perifericas.png'
 import marias from '@/assets/coletivo-marias.png'
 import egbe from '@/assets/coletivo-egbe.png'
 import abreCaminho from '@/assets/coletivo-abre-caminho.png'
+import lucasMarafa from '@/assets/lucas-marafa.jpg'
 
-const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link?: string; destaque?: string }[] }> = {
+const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link?: string; destaque?: string; imagem?: string }[] }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
     logo: perifericas,
@@ -26,6 +27,7 @@ const coletivos: Record<string, { nome: string; descricao: string; logo: string;
       link: 'https://youtu.be/lkGoEO8OGmg?is=IBZs9d0a1So_rskv',
     }, {
       titulo: 'A La Marafa',
+      imagem: lucasMarafa,
       descricao: 'Lucas Marafa é um poeta, produtor cultural e educador social em formação, atualmente graduando-se em Ciências Sociais - Licenciatura na Universidade Federal de Pernambuco. Sua trajetória como poeta começou no Grupo Recital Afrologia, e atualmente ele faz parte do coletivo Ataque Surpresa, onde continua a explorar sua arte. Como produtor cultural e educador social, Lucas atua no coletivo Combate Lírico, contribuindo para iniciativas que valorizam a expressão artística e a educação. Em sua carreira solo, ele lançou "Lucas Marafa em NegroPernambucano: Contextos, Conflitos e Amores", um projeto que une sua atuação como poeta, ator e roteirista.',
       link: 'https://youtu.be/h78I3WOY7mw?is=fjBx0SkMYty3g-lH',
     }, {
@@ -143,6 +145,7 @@ function ColetivoPage() {
                 {projeto.destaque}
               </p>
             )}
+            {projeto.imagem && <img src={projeto.imagem} alt="Lucas Marafa" className="mt-5 h-auto w-full max-w-sm rounded-xl object-cover" />}
             {projeto.link && <a
               href={projeto.link}
               target="_blank"
