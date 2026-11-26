@@ -53,32 +53,36 @@ function ColetivoPage() {
         <article className="mt-8 rounded-2xl border border-tinta/15 bg-white p-6 shadow-sm sm:p-8">
           <h1 className="font-display text-4xl sm:text-5xl">{coletivo.nome}</h1>
           <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
-          {coletivo.site && (
+          {(coletivo.site || coletivo.instagram) && (
             <div className="mt-8 border-t border-tinta/10 pt-6">
-              <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
-              <a
-                href={coletivo.site}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Site da Coletiva Periféricas (abre em nova aba)"
-                className="mt-3 inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
-              >
-                Site
-              </a>
-            </div>
-          )}
-          {coletivo.instagram && (
-            <div className="mt-8 border-t border-tinta/10 pt-6">
-              <a
-                href={coletivo.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram do coletivo (abre em nova aba)"
-                className="inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
-              >
-                <Instagram className="h-5 w-5" aria-hidden="true" />
-                Instagram
-              </a>
+              {coletivo.site && (
+                <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
+              )}
+              <div className={`flex flex-wrap items-center gap-3 ${coletivo.site ? 'mt-3' : ''}`}>
+                {coletivo.site && (
+                  <a
+                    href={coletivo.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Site da Coletiva Periféricas (abre em nova aba)"
+                    className="inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
+                  >
+                    Site
+                  </a>
+                )}
+                {coletivo.instagram && (
+                  <a
+                    href={coletivo.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram do coletivo (abre em nova aba)"
+                    className="inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
+                  >
+                    <Instagram className="h-5 w-5" aria-hidden="true" />
+                    Instagram
+                  </a>
+                )}
+              </div>
             </div>
           )}
         </article>
