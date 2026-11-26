@@ -24,6 +24,10 @@ const coletivos: Record<string, { nome: string; descricao: string; logo: string;
       titulo: 'Ouro de Oxum',
       descricao: '"O Ouro de Oxum" é um projeto marcante produzido pelo Espaço Cultural das Marias em 2021, que apresenta uma performance envolvente de Lua Maria. Este projeto busca celebrar e valorizar a cultura afro-brasileira, explorando a riqueza das tradições e a ancestralidade através da arte. A performance de Lua Maria é um convite à reflexão sobre a importância de Oxum, a orixá das águas doces, da fertilidade e do amor, simbolizando também a força feminina e a conexão com a natureza.',
       link: 'https://youtu.be/lkGoEO8OGmg?is=IBZs9d0a1So_rskv',
+    }, {
+      titulo: 'A La Marafa',
+      descricao: 'Lucas Marafa é um poeta, produtor cultural e educador social em formação, atualmente graduando-se em Ciências Sociais - Licenciatura na Universidade Federal de Pernambuco. Sua trajetória como poeta começou no Grupo Recital Afrologia, e atualmente ele faz parte do coletivo Ataque Surpresa, onde continua a explorar sua arte. Como produtor cultural e educador social, Lucas atua no coletivo Combate Lírico, contribuindo para iniciativas que valorizam a expressão artística e a educação. Em sua carreira solo, ele lançou "Lucas Marafa em NegroPernambucano: Contextos, Conflitos e Amores", um projeto que une sua atuação como poeta, ator e roteirista.',
+      link: 'https://youtu.be/h78I3WOY7mw?is=fjBx0SkMYty3g-lH',
     }],
   },
   'terreiro-egbe-omo-lomi': {
