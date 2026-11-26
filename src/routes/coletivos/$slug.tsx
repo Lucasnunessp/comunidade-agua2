@@ -1,7 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Instagram } from 'lucide-react'
 import Navbar from '@/components/site/Navbar.jsx'
 
-const coletivos: Record<string, { nome: string; descricao: string; site?: string }> = {
+const coletivos: Record<string, { nome: string; descricao: string; site?: string; instagram?: string }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
     site: 'https://coletiva-perifericas.vercel.app/',
@@ -13,6 +14,7 @@ const coletivos: Record<string, { nome: string; descricao: string; site?: string
   },
   'terreiro-egbe-omo-lomi': {
     nome: "Terreiro Egbé Omo L'Omi",
+    instagram: 'https://www.instagram.com/egbeomolomi?bqrl=MXM4NDltZnBsam50Nw==',
     descricao: 'A Egbé Omo L\'Omi foi fundada em 2019 e utiliza os cultos de Candomblé (Orísá) e Jurema (entidades encantadas) como ferramentas de resistência contra o racismo, a LGBTQIAfobia e a misoginia. Além disso, a ancestralidade é empregada como um meio de fortalecer a comunidade. Entre suas iniciativas, a comunidade realiza ações sociais, como a entrega de cestas básicas e mutirões de saúde, promovendo assim o bem-estar e o acolhimento no território.',
   },
   'grupo-abre-caminho': {
@@ -54,6 +56,20 @@ function ColetivoPage() {
               <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
               <a href={coletivo.site} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-semibold text-barro-600 underline underline-offset-4 hover:text-barro-700">
                 https://coletiva-perifericas.vercel.app/
+              </a>
+            </div>
+          )}
+          {coletivo.instagram && (
+            <div className="mt-8 border-t border-tinta/10 pt-6">
+              <a
+                href={coletivo.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram do Terreiro Egbé Omo L'Omi (abre em nova aba)"
+                className="inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
+              >
+                <Instagram className="h-5 w-5" aria-hidden="true" />
+                Instagram
               </a>
             </div>
           )}
