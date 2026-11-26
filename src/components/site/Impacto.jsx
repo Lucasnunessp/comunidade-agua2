@@ -1,64 +1,53 @@
-import { useEffect, useRef } from 'react'
-import { animate, useInView } from 'framer-motion'
-import { Users, CalendarHeart, Clapperboard, GraduationCap } from 'lucide-react'
+import { Palette, BookOpen, Leaf } from 'lucide-react'
 
-// ATENÇÃO: números fictícios, só para o protótipo. Trocar pelos dados reais da organização.
-const metricas = [
-  { valor: 4, sufixo: '', label: 'Coletivos reunidos', icone: Users },
-  { valor: 120, sufixo: '+', label: 'Atividades por ano', icone: CalendarHeart },
-  { valor: 35, sufixo: '+', label: 'Produções audiovisuais', icone: Clapperboard },
-  { valor: 800, sufixo: '+', label: 'Pessoas alcançadas', icone: GraduationCap },
+const causas = [
+  {
+    titulo: 'Arte',
+    subtitulo: 'Cultura em Destaque',
+    descricao:
+      'Através de exposições, workshops e eventos culturais, promovemos a valorização da arte e da cultura local. Buscamos preservar e transmitir nossas tradições, promovendo a diversidade cultural e fortalecendo nossa identidade como comunidade.',
+    icone: Palette,
+  },
+  {
+    titulo: 'Educação',
+    subtitulo: 'Conhecimento que transforma',
+    descricao:
+      'Investimos em programas educacionais que capacitam e inspiram os participantes, promovendo a inclusão, a igualdade de oportunidades e o acesso ao conhecimento. Acreditamos que a educação é a chave para o crescimento individual e coletivo.',
+    icone: BookOpen,
+  },
+  {
+    titulo: 'Sustentabilidade',
+    subtitulo: 'Cuidando do Nosso Lar',
+    descricao:
+      'Comprometemo-nos com práticas sustentáveis que respeitam o meio ambiente e promovem a conscientização ambiental. Buscamos criar um impacto positivo, preservando os recursos naturais e incentivando a comunidade a adotar hábitos mais sustentáveis.',
+    icone: Leaf,
+  },
 ]
-
-function Contador({ ate, sufixo }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    if (!inView) return
-    const controls = animate(0, ate, {
-      duration: 1.8,
-      ease: 'easeOut',
-      onUpdate: (v) => {
-        if (ref.current) ref.current.textContent = Math.round(v) + sufixo
-      },
-    })
-    return () => controls.stop()
-  }, [inView, ate, sufixo])
-
-  return <span ref={ref}>0{sufixo}</span>
-}
 
 export default function Impacto() {
   return (
     <section id="impacto" className="papel px-5 py-20 sm:px-14">
       <div className="mx-auto max-w-[1300px]">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-barro-600">
-          Impacto social &amp; causas
+          Nossas Causas
         </p>
         <h2 className="mt-2 max-w-2xl font-display text-4xl leading-tight sm:text-6xl">
-          Cultura que transforma o território.
+          Impacto positivo na Comunidade
         </h2>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {metricas.map((m) => {
-            const Icon = m.icone
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {causas.map((causa) => {
+            const Icon = causa.icone
             return (
-              <div key={m.label} className="cartao rounded-2xl p-6">
-                <Icon className="h-6 w-6 text-barro-600" />
-                <p className="mt-4 font-display text-6xl text-tinta">
-                  <Contador ate={m.valor} sufixo={m.sufixo} />
-                </p>
-                <p className="mt-1 text-base text-tinta/70">{m.label}</p>
-              </div>
+              <article key={causa.titulo} className="cartao rounded-2xl p-6 sm:p-8">
+                <Icon className="h-7 w-7 text-barro-600" aria-hidden="true" />
+                <h3 className="mt-5 font-display text-3xl text-tinta">{causa.titulo}</h3>
+                <p className="mt-2 text-sm font-semibold text-barro-600">{causa.subtitulo}</p>
+                <p className="mt-4 text-base leading-8 text-tinta/75">{causa.descricao}</p>
+              </article>
             )
           })}
         </div>
-
-        <p className="mt-10 max-w-2xl text-lg leading-8 text-tinta/75">
-          Nossas causas: memória e ancestralidade afro-indígena, educação popular, audiovisual
-          periférico, protagonismo de mulheres e juventudes, e o direito ao bem-viver.
-        </p>
       </div>
     </section>
   )
