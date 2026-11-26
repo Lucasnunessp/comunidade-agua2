@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Instagram } from 'lucide-react'
+import { ArrowDown, Instagram } from 'lucide-react'
 import Navbar from '@/components/site/Navbar.jsx'
 
 const coletivos: Record<string, { nome: string; descricao: string; site?: string; instagram?: string }> = {
@@ -56,7 +56,10 @@ function ColetivoPage() {
           {(coletivo.site || coletivo.instagram) && (
             <div className="mt-8 border-t border-tinta/10 pt-6">
               {coletivo.site && (
-                <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
+                <p className="inline-flex flex-wrap items-center gap-2 text-lg leading-8 text-tinta/75">
+                  Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo
+                  <ArrowDown className="h-4 w-4 shrink-0 text-tinta/60" strokeWidth={1.7} aria-hidden="true" />
+                </p>
               )}
               <div className={`flex flex-wrap items-center gap-3 ${coletivo.site ? 'mt-3' : ''}`}>
                 {coletivo.site && (
