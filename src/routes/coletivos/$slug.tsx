@@ -1,0 +1,53 @@
+import { createFileRoute } from '@tanstack/react-router'
+import Navbar from '@/components/site/Navbar.jsx'
+
+const coletivos: Record<string, { nome: string; descricao: string }> = {
+  'coletiva-perifericas': {
+    nome: 'Coletiva Periféricas',
+    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+  },
+  'espaco-cultural-das-marias': {
+    nome: 'Espaço Cultural das Marias',
+    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+  },
+  'terreiro-egbe-omo-lomi': {
+    nome: "Terreiro Egbé Omo L'Omi",
+    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+  },
+  'grupo-abre-caminho': {
+    nome: 'Grupo Abre Caminho',
+    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+  },
+}
+
+export const Route = createFileRoute('/coletivos/$slug')({
+  component: ColetivoPage,
+})
+
+function ColetivoPage() {
+  const { slug } = Route.useParams()
+  const coletivo = coletivos[slug]
+
+  if (!coletivo) {
+    return (
+      <div className="min-h-screen bg-card text-tinta">
+        <Navbar />
+        <main className="mx-auto max-w-4xl px-5 py-16">
+          <h1 className="font-display text-4xl">Coletivo não encontrado</h1>
+          <a href="/#coletivos" className="mt-6 inline-block text-barro-600 underline">Voltar aos coletivos</a>
+        </main>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-card text-tinta">
+      <Navbar />
+      <main className="mx-auto max-w-4xl px-5 py-16 sm:py-20">
+        <a href="/#coletivos" className="text-sm font-semibold text-barro-600 hover:underline">← Voltar aos coletivos</a>
+        <h1 className="mt-8 font-display text-4xl sm:text-5xl">{coletivo.nome}</h1>
+        <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
+      </main>
+    </div>
+  )
+}
