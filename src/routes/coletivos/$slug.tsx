@@ -19,6 +19,7 @@ const coletivos: Record<string, { nome: string; descricao: string; site?: string
   },
   'grupo-abre-caminho': {
     nome: 'Grupo Abre Caminho',
+    instagram: 'https://www.instagram.com/_abrecaminho?bqrl=MTBxcThjODdyNTB3cg==',
     descricao: 'O Grupo Abre Caminho, originário do Ibura, traz uma nova abordagem musical que preserva a essência dos estilos que interpreta. Encantando o público com a harmonia de seus instrumentos percussivos, a combinação entre a alfaia e o pandeiro é o coração de cada melodia. Com base em estratégias inspiradas na cultura negra afro-indígena, o grupo é guiado pela Jurema Sagrada, buscando sempre conectar suas raízes às suas performances.',
   },
 }
