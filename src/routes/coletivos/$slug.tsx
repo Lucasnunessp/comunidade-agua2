@@ -78,22 +78,6 @@ function ColetivoPage() {
             <h1 className="font-display text-3xl leading-tight sm:text-5xl">{coletivo.nome}</h1>
           </div>
           <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
-          {coletivo.projetos?.map((projeto) => (
-            <section key={projeto.titulo} className="mt-8 rounded-xl border border-tinta/15 bg-[#faf9f8] p-5 sm:p-6">
-              <h2 className="font-display text-2xl sm:text-3xl">{projeto.titulo}</h2>
-              <p className="mt-3 text-base leading-7 text-tinta/75">{projeto.descricao}</p>
-              <a
-                href={projeto.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Assistir ao projeto ${projeto.titulo} no YouTube (abre em nova aba)`}
-                className="mt-5 inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
-              >
-                <Youtube className="h-5 w-5" aria-hidden="true" />
-                Assistir no YouTube
-              </a>
-            </section>
-          ))}
           {(coletivo.site || coletivo.instagram || coletivo.youtube) && (
             <div className="mt-8 border-t border-tinta/10 pt-6">
               {coletivo.site && (
@@ -142,6 +126,22 @@ function ColetivoPage() {
             </div>
           )}
         </article>
+        {coletivo.projetos?.map((projeto) => (
+          <article key={projeto.titulo} className="mt-5 rounded-2xl border border-tinta/15 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="font-display text-2xl sm:text-3xl">{projeto.titulo}</h2>
+            <p className="mt-3 text-base leading-7 text-tinta/75">{projeto.descricao}</p>
+            <a
+              href={projeto.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Assistir ao projeto ${projeto.titulo} no YouTube (abre em nova aba)`}
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
+            >
+              <Youtube className="h-5 w-5" aria-hidden="true" />
+              Assistir no YouTube
+            </a>
+          </article>
+        ))}
       </main>
     </div>
   )
