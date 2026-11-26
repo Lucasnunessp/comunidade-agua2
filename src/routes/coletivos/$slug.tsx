@@ -6,6 +6,7 @@ const coletivos: Record<string, { nome: string; descricao: string; site?: string
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
     site: 'https://coletiva-perifericas.vercel.app/',
+    instagram: 'https://www.instagram.com/perifericas?knvt=bDJjbng0bmNvamJ6',
     descricao: 'Fundada em 2016, a Coletiva Periféricas é composta por mulheres negras, periféricas e candomblecistas, dedicando-se ao mapeamento de dados e à promoção do bem viver na comunidade do Ibura. Entre seus projetos atuais, destacam-se o Mapeando a Ancestralidade na Periferia, que visa mapear os terreiros do Ibura e Jaboatão dos Guararapes, e o Cine Rua Escura, que busca promover a cultura e a visibilidade da produção audiovisual periférica.',
   },
   'espaco-cultural-das-marias': {
@@ -66,7 +67,7 @@ function ColetivoPage() {
                 href={coletivo.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram do Terreiro Egbé Omo L'Omi (abre em nova aba)"
+                aria-label="Instagram do coletivo (abre em nova aba)"
                 className="inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
               >
                 <Instagram className="h-5 w-5" aria-hidden="true" />
