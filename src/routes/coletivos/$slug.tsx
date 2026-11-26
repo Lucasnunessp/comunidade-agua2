@@ -13,7 +13,7 @@ const coletivos: Record<string, { nome: string; descricao: string; site?: string
   },
   'terreiro-egbe-omo-lomi': {
     nome: "Terreiro Egbé Omo L'Omi",
-    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+    descricao: 'A Egbé Omo L\'Omi foi fundada em 2019 e utiliza os cultos de Candomblé (Orísá) e Jurema (entidades encantadas) como ferramentas de resistência contra o racismo, a LGBTQIAfobia e a misoginia. Além disso, a ancestralidade é empregada como um meio de fortalecer a comunidade. Entre suas iniciativas, a comunidade realiza ações sociais, como a entrega de cestas básicas e mutirões de saúde, promovendo assim o bem-estar e o acolhimento no território.',
   },
   'grupo-abre-caminho': {
     nome: 'Grupo Abre Caminho',
