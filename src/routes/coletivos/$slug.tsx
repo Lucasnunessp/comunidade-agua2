@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import Navbar from '@/components/site/Navbar.jsx'
 
-const coletivos: Record<string, { nome: string; descricao: string }> = {
+const coletivos: Record<string, { nome: string; descricao: string; site?: string }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
+    site: 'https://coletiva-perifericas.vercel.app/',
     descricao: 'Fundada em 2016, a Coletiva Periféricas é composta por mulheres negras, periféricas e candomblecistas, dedicando-se ao mapeamento de dados e à promoção do bem viver na comunidade do Ibura. Entre seus projetos atuais, destacam-se o Mapeando a Ancestralidade na Periferia, que visa mapear os terreiros do Ibura e Jaboatão dos Guararapes, e o Cine Rua Escura, que busca promover a cultura e a visibilidade da produção audiovisual periférica.',
   },
   'espaco-cultural-das-marias': {
@@ -47,6 +48,14 @@ function ColetivoPage() {
         <a href="/#coletivos" className="text-sm font-semibold text-barro-600 hover:underline">← Voltar aos coletivos</a>
         <h1 className="mt-8 font-display text-4xl sm:text-5xl">{coletivo.nome}</h1>
         <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
+        {coletivo.site && (
+          <div className="mt-8">
+            <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
+            <a href={coletivo.site} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-semibold text-barro-600 underline underline-offset-4 hover:text-barro-700">
+              https://coletiva-perifericas.vercel.app/
+            </a>
+          </div>
+        )}
       </main>
     </div>
   )
