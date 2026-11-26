@@ -1,12 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ArrowDown, Instagram } from 'lucide-react'
+import { ArrowDown, Instagram, Youtube } from 'lucide-react'
 import Navbar from '@/components/site/Navbar.jsx'
 import perifericas from '@/assets/coletivo-perifericas.png'
 import marias from '@/assets/coletivo-marias.png'
 import egbe from '@/assets/coletivo-egbe.png'
 import abreCaminho from '@/assets/coletivo-abre-caminho.png'
 
-const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string }> = {
+const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
     logo: perifericas,
@@ -17,7 +17,9 @@ const coletivos: Record<string, { nome: string; descricao: string; logo: string;
   'espaco-cultural-das-marias': {
     nome: 'Espaço Cultural das Marias',
     logo: marias,
-    descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
+    instagram: 'https://www.instagram.com/espacoculturaldasmarias?bqrl=MWhtemFocTVieWhhcA==',
+    youtube: 'https://m.youtube.com/%40espacoculturaldasmarias/featured?fbclid=PAb21jcAVx69lleHRuA2FlbQIxMQBwZG9mAnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpy_ck7Liv7qftBJQZMBFoAuMPwDD87MD79_D7yZ0U4mxlQ9e5uFX0LfTYFe4_aem_cTcUfic-RTXpZyB3aaqBpA',
+    descricao: 'O Espaço Cultural das Marias, fundado em 2016, tem como objetivo movimentar a cultura no Ibura, criando suportes para compartilhar e apoiar artistas locais. A iniciativa articula espaços para ensaios, estabelece redes colaborativas e produz eventos e conteúdos audiovisuais. Um dos projetos mais recentes, Cultura de Favela, inclui a produção de vídeos e podcasts com artistas, além de ações de divulgação nas redes sociais. O Espaço também está em processo de desenvolvimento de um projeto para criar um espaço físico dedicado à produção cultural nas periferias. Além disso, a equipe atua em áreas como fotografia, audiovisual, produção cultural e organização de eventos e feiras pretas, sempre buscando valorizar e enaltecer os criadores de cultura do território.',
   },
   'terreiro-egbe-omo-lomi': {
     nome: "Terreiro Egbé Omo L'Omi",
@@ -71,7 +73,7 @@ function ColetivoPage() {
             <h1 className="font-display text-3xl leading-tight sm:text-5xl">{coletivo.nome}</h1>
           </div>
           <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
-          {(coletivo.site || coletivo.instagram) && (
+          {(coletivo.site || coletivo.instagram || coletivo.youtube) && (
             <div className="mt-8 border-t border-tinta/10 pt-6">
               {coletivo.site && (
                 <p className="inline-flex flex-wrap items-center gap-2 text-lg leading-8 text-tinta/75">
@@ -101,6 +103,18 @@ function ColetivoPage() {
                   >
                     <Instagram className="h-5 w-5" aria-hidden="true" />
                     Instagram
+                  </a>
+                )}
+                {coletivo.youtube && (
+                  <a
+                    href={coletivo.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube do coletivo (abre em nova aba)"
+                    className="inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
+                  >
+                    <Youtube className="h-5 w-5" aria-hidden="true" />
+                    YouTube
                   </a>
                 )}
               </div>
