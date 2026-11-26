@@ -145,7 +145,7 @@ function ColetivoPage() {
                 {projeto.destaque}
               </p>
             )}
-            {projeto.imagem && <img src={projeto.imagem} alt="Lucas Marafa" className="mt-5 h-auto w-full max-w-sm rounded-xl object-cover" />}
+            {projeto.imagem && <img src={projeto.imagem} alt="Lucas Marafa" className="mt-5 h-auto w-full max-w-[12rem] rounded-xl object-cover" />}
             {projeto.link && <a
               href={projeto.link}
               target="_blank"
