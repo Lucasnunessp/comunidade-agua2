@@ -6,7 +6,7 @@ import marias from '@/assets/coletivo-marias.png'
 import egbe from '@/assets/coletivo-egbe.png'
 import abreCaminho from '@/assets/coletivo-abre-caminho.png'
 
-const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link: string }[] }> = {
+const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link?: string; destaque?: string }[] }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
     logo: perifericas,
@@ -28,6 +28,10 @@ const coletivos: Record<string, { nome: string; descricao: string; logo: string;
       titulo: 'A La Marafa',
       descricao: 'Lucas Marafa é um poeta, produtor cultural e educador social em formação, atualmente graduando-se em Ciências Sociais - Licenciatura na Universidade Federal de Pernambuco. Sua trajetória como poeta começou no Grupo Recital Afrologia, e atualmente ele faz parte do coletivo Ataque Surpresa, onde continua a explorar sua arte. Como produtor cultural e educador social, Lucas atua no coletivo Combate Lírico, contribuindo para iniciativas que valorizam a expressão artística e a educação. Em sua carreira solo, ele lançou "Lucas Marafa em NegroPernambucano: Contextos, Conflitos e Amores", um projeto que une sua atuação como poeta, ator e roteirista.',
       link: 'https://youtu.be/h78I3WOY7mw?is=fjBx0SkMYty3g-lH',
+    }, {
+      titulo: 'Bloco Tic-Tac',
+      descricao: 'O bloco carnavalesco Tic-Tac surge com a proposta de enriquecer o carnaval na comunidade do Ibura, trazendo mais uma opção de bloco de rua e promovendo a descentralização dessa festividade tão importante. Reconhecendo que muitos integrantes do Espaço Cultural das Marias e do Centro Cultural Comunidade das Águas estão frequentemente envolvidos nas grandes celebrações, como o carnaval, o bloco Tic-Tac foi criado para garantir que essas pessoas também possam desfrutar da folia e celebrar a cultura local.\\n\\nO bloco se propõe a ser um espaço de diversão e inclusão, onde os moradores da comunidade podem se reunir, dançar e vivenciar a alegria do carnaval em um ambiente acolhedor e festivo. Com ritmos contagiantes e uma programação que valoriza a diversidade cultural, o Tic-Tac é mais do que apenas um bloco; é uma celebração da união e da identidade do Ibura.\\n\\nAtravés de sua atuação, o bloco Tic-Tac reafirma a importância da participação comunitária nas festividades, promovendo um carnaval que é acessível e representativo, onde todos têm a oportunidade de brilhar e se divertir. Com isso, busca fortalecer os laços sociais e culturais da região, transformando o carnaval em um momento de celebração coletiva e pertencimento.',
+      destaque: 'Porque nosso tempo é outro!',
     }],
   },
   'terreiro-egbe-omo-lomi': {
@@ -133,8 +137,13 @@ function ColetivoPage() {
         {coletivo.projetos?.map((projeto) => (
           <article key={projeto.titulo} className="mt-5 rounded-2xl border border-tinta/15 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="font-display text-2xl sm:text-3xl">{projeto.titulo}</h2>
-            <p className="mt-3 text-base leading-7 text-tinta/75">{projeto.descricao}</p>
-            <a
+            <p className="mt-3 whitespace-pre-line text-base leading-7 text-tinta/75">{projeto.descricao}</p>
+            {projeto.destaque && (
+              <p className="mt-6 text-xl font-semibold leading-8 text-tinta sm:text-2xl">
+                {projeto.destaque}
+              </p>
+            )}
+            {projeto.link && <a
               href={projeto.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -143,7 +152,7 @@ function ColetivoPage() {
             >
               <Youtube className="h-5 w-5" aria-hidden="true" />
               Assistir no YouTube
-            </a>
+            </a>}
           </article>
         ))}
       </main>
