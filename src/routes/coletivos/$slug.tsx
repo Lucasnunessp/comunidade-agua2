@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ArrowDown, Instagram, Youtube } from 'lucide-react'
+import { ArrowDown, Instagram, Youtube, Music2 } from 'lucide-react'
 import Navbar from '@/components/site/Navbar.jsx'
 import perifericas from '@/assets/coletivo-perifericas.png'
 import marias from '@/assets/coletivo-marias.png'
@@ -8,7 +8,7 @@ import abreCaminho from '@/assets/coletivo-abre-caminho.png'
 import lucasMarafa from '@/assets/lucas-marafa.jpg'
 import ouroOxum from '@/assets/ouro-oxum.jpg'
 
-const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link?: string; destaque?: string; imagem?: string; episodios?: { titulo: string; link: string }[] }[] }> = {
+const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link?: string; destaque?: string; imagem?: string; episodios?: { titulo: string; link: string }[]; spotify?: string }[] }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
     logo: perifericas,
@@ -25,6 +25,7 @@ const coletivos: Record<string, { nome: string; descricao: string; logo: string;
     projetos: [{
       titulo: 'Cultura de Favela',
       descricao: 'Cultura de Favela é uma websérie dedicada a promover e valorizar a cultura periférica, destacando as vivências, lutas e criações de artistas independentes do Ibura e de Jaboatão dos Guararapes. Por meio de entrevistas em formato audiovisual e podcast, todo o conteúdo é disponibilizado no YouTube e no Spotify.\\n\\nEssa iniciativa é uma continuidade de um projeto que começou em 2022, mas que foi temporariamente interrompido devido à falta de recursos. O foco central da websérie é oferecer visibilidade a esses artistas, permitindo que suas histórias e obras alcancem um público mais amplo, enriquecendo a cultura local e ampliando o reconhecimento de suas contribuições.\\n\\nA relevância deste projeto é clara, especialmente diante dos desafios que os artistas da periferia enfrentam, como a desvalorização de seu trabalho e a escassez de espaços adequados para a apresentação de suas criações.\\n\\nAlém de contribuir para a construção de uma identidade cultural mais inclusiva, o projeto oferece alternativas construtivas e inspiradoras. Assim, Cultura de Favela não apenas celebra a diversidade cultural, mas também desempenha um papel vital na transformação social da comunidade.',
+      spotify: 'https://open.spotify.com/show/3peHjerzomNDu5sHtHUtZr?si=0rIrt_1eSlemmfKWwRd7zw&utm_source=whatsapp&sci=spotify%3Acard-config%3A6J67SVinC9V6DlhvxkNu0K',
       episodios: [
         { titulo: 'Episódio 1', link: 'https://youtu.be/q7c3VLTPr1w?is=OzJdq-9ZAqwqVQJP' },
         { titulo: 'Episódio 2', link: 'https://youtu.be/InqmboBYv2c?is=6lJ3jVsZT0azy-Yt' },
@@ -157,6 +158,18 @@ function ColetivoPage() {
               </p>
             )}
             {projeto.imagem && <img src={projeto.imagem} alt={projeto.titulo === "Ouro de Oxum" ? "Representação artística de Oxum" : "Lucas Marafa"} className="mt-5 h-auto w-full max-w-[12rem] rounded-xl object-cover" />}
+            {projeto.spotify && (
+              <a
+                href={projeto.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ouvir Cultura de Favela no Spotify (abre em nova aba)"
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-tinta/30 px-5 py-3 text-sm font-semibold text-tinta transition-colors hover:bg-barro-500 hover:text-white"
+              >
+                <Music2 className="h-5 w-5" aria-hidden="true" />
+                Ouvir no Spotify
+              </a>
+            )}
             {projeto.episodios && (
               <div className="mt-6 border-t border-tinta/10 pt-5">
                 <h3 className="font-display text-xl text-tinta sm:text-2xl">Assista aos episódios</h3>
