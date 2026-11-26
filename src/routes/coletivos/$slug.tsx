@@ -46,16 +46,18 @@ function ColetivoPage() {
       <Navbar />
       <main className="mx-auto max-w-4xl px-5 py-16 sm:py-20">
         <a href="/#coletivos" className="text-sm font-semibold text-barro-600 hover:underline">← Voltar aos coletivos</a>
-        <h1 className="mt-8 font-display text-4xl sm:text-5xl">{coletivo.nome}</h1>
-        <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
-        {coletivo.site && (
-          <div className="mt-8">
-            <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
-            <a href={coletivo.site} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-semibold text-barro-600 underline underline-offset-4 hover:text-barro-700">
-              https://coletiva-perifericas.vercel.app/
-            </a>
-          </div>
-        )}
+        <article className="mt-8 rounded-2xl border border-tinta/15 bg-white p-6 shadow-sm sm:p-8">
+          <h1 className="font-display text-4xl sm:text-5xl">{coletivo.nome}</h1>
+          <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
+          {coletivo.site && (
+            <div className="mt-8 border-t border-tinta/10 pt-6">
+              <p className="text-lg leading-8 text-tinta/75">Para conhecer mais sobre os projetos da Coletiva Perifericas acesse o site abaixo</p>
+              <a href={coletivo.site} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-semibold text-barro-600 underline underline-offset-4 hover:text-barro-700">
+                https://coletiva-perifericas.vercel.app/
+              </a>
+            </div>
+          )}
+        </article>
       </main>
     </div>
   )
