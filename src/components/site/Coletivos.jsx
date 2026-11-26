@@ -87,7 +87,7 @@ function Card({ item, index }) {
 
 export default function Coletivos() {
   return (
-    <section id="coletivos" className="bg-white px-5 py-20 sm:px-14">
+    <section id="coletivos" className="border-t border-tinta/10 bg-white px-5 py-20 sm:px-14">
       <div className="mx-auto max-w-[1300px]">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-barro-600">
           Coletivos mapeados
