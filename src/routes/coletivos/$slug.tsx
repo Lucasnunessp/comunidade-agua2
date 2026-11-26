@@ -1,25 +1,33 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowDown, Instagram } from 'lucide-react'
 import Navbar from '@/components/site/Navbar.jsx'
+import perifericas from '@/assets/coletivo-perifericas.png'
+import marias from '@/assets/coletivo-marias.png'
+import egbe from '@/assets/coletivo-egbe.png'
+import abreCaminho from '@/assets/coletivo-abre-caminho.png'
 
-const coletivos: Record<string, { nome: string; descricao: string; site?: string; instagram?: string }> = {
+const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string }> = {
   'coletiva-perifericas': {
     nome: 'Coletiva Periféricas',
+    logo: perifericas,
     site: 'https://coletiva-perifericas.vercel.app/',
     instagram: 'https://www.instagram.com/perifericas?knvt=bDJjbng0bmNvamJ6',
     descricao: 'Fundada em 2016, a Coletiva Periféricas é composta por mulheres negras, periféricas e candomblecistas, dedicando-se ao mapeamento de dados e à promoção do bem viver na comunidade do Ibura. Entre seus projetos atuais, destacam-se o Mapeando a Ancestralidade na Periferia, que visa mapear os terreiros do Ibura e Jaboatão dos Guararapes, e o Cine Rua Escura, que busca promover a cultura e a visibilidade da produção audiovisual periférica.',
   },
   'espaco-cultural-das-marias': {
     nome: 'Espaço Cultural das Marias',
+    logo: marias,
     descricao: 'Conteúdo desta página será acrescentado assim que as informações do coletivo forem enviadas.',
   },
   'terreiro-egbe-omo-lomi': {
     nome: "Terreiro Egbé Omo L'Omi",
+    logo: egbe,
     instagram: 'https://www.instagram.com/egbeomolomi?bqrl=MXM4NDltZnBsam50Nw==',
     descricao: 'A Egbé Omo L\'Omi foi fundada em 2019 e utiliza os cultos de Candomblé (Orísá) e Jurema (entidades encantadas) como ferramentas de resistência contra o racismo, a LGBTQIAfobia e a misoginia. Além disso, a ancestralidade é empregada como um meio de fortalecer a comunidade. Entre suas iniciativas, a comunidade realiza ações sociais, como a entrega de cestas básicas e mutirões de saúde, promovendo assim o bem-estar e o acolhimento no território.',
   },
   'grupo-abre-caminho': {
     nome: 'Grupo Abre Caminho',
+    logo: abreCaminho,
     instagram: 'https://www.instagram.com/_abrecaminho?bqrl=MTBxcThjODdyNTB3cg==',
     descricao: 'O Grupo Abre Caminho, originário do Ibura, traz uma nova abordagem musical que preserva a essência dos estilos que interpreta. Encantando o público com a harmonia de seus instrumentos percussivos, a combinação entre a alfaia e o pandeiro é o coração de cada melodia. Com base em estratégias inspiradas na cultura negra afro-indígena, o grupo é guiado pela Jurema Sagrada, buscando sempre conectar suas raízes às suas performances.',
   },
@@ -52,7 +60,16 @@ function ColetivoPage() {
       <main className="mx-auto max-w-4xl px-5 py-16 sm:py-20">
         <a href="/#coletivos" className="text-sm font-semibold text-barro-600 hover:underline">← Voltar aos coletivos</a>
         <article className="mt-8 rounded-2xl border border-tinta/15 bg-white p-6 shadow-sm sm:p-8">
-          <h1 className="font-display text-4xl sm:text-5xl">{coletivo.nome}</h1>
+          <div className="flex items-center gap-4 sm:gap-5">
+            <img
+              src={coletivo.logo}
+              alt={`Logo de ${coletivo.nome}`}
+              width="80"
+              height="80"
+              className="h-16 w-16 shrink-0 rounded-full object-contain sm:h-20 sm:w-20"
+            />
+            <h1 className="font-display text-3xl leading-tight sm:text-5xl">{coletivo.nome}</h1>
+          </div>
           <p className="mt-6 text-lg leading-8 text-tinta/75">{coletivo.descricao}</p>
           {(coletivo.site || coletivo.instagram) && (
             <div className="mt-8 border-t border-tinta/10 pt-6">
