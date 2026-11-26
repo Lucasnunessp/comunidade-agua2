@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { Link } from '@tanstack/react-router'
 import perifericas from '@/assets/coletivo-perifericas.png'
 import marias from '@/assets/coletivo-marias.png'
 import egbe from '@/assets/coletivo-egbe.png'
@@ -7,24 +8,28 @@ import abreCaminho from '@/assets/coletivo-abre-caminho.png'
 // descrições vindas do "Sobre Nós" do site original
 const coletivos = [
   {
+    slug: 'coletiva-perifericas',
     nome: 'Coletiva Periféricas',
     logo: perifericas,
     resumo:
       'Coletivo de comunicação jornalística dedicado ao gerenciamento de dados, pesquisa e mapeamentos.',
   },
   {
+    slug: 'espaco-cultural-das-marias',
     nome: 'Espaço Cultural das Marias',
     logo: marias,
     resumo:
       'Produtora audiovisual e fotográfica independente, que fomenta e agencia artistas negros e periféricos, priorizando a comunidade do Ibura de forma colaborativa e acessível.',
   },
   {
+    slug: 'terreiro-egbe-omo-lomi',
     nome: "Terreiro Egbé Omo L'Omi",
     logo: egbe,
     resumo:
       'Organização religiosa que cuida do bem-estar espiritual da comunidade, com ações sociais como cestas básicas, mutirões de saúde e acolhimento.',
   },
   {
+    slug: 'grupo-abre-caminho',
     nome: 'Grupo Abre Caminho',
     logo: abreCaminho,
     resumo: 'Grupo percussivo e musical que se dedica ao fomento da cultura popular.',
@@ -62,13 +67,19 @@ function Card({ item, index }) {
         onMouseMove={onMove}
         onMouseLeave={onLeave}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="h-full rounded-2xl border border-tinta/20 bg-white p-6 shadow-sm transition-colors hover:border-barro-500"
+        className="flex h-full flex-col rounded-2xl border border-tinta/20 bg-white p-6 shadow-sm transition-colors hover:border-barro-500"
       >
         <div style={{ transform: 'translateZ(30px)' }}>
           <img src={item.logo} alt={`Logo de ${item.nome}`} width="80" height="80" className="mb-4 h-20 w-20 rounded-full object-contain" />
           <h3 className="font-display text-3xl leading-tight">{item.nome}</h3>
           <p className="mt-3 text-base leading-7 text-tinta/75">{item.resumo}</p>
         </div>
+        <Link
+          to={`/coletivos/${item.slug}`}
+          className="mt-auto inline-flex w-fit items-center rounded-full bg-barro-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-barro-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-barro-600"
+        >
+          Ver mais
+        </Link>
       </motion.div>
     </motion.div>
   )
