@@ -32,6 +32,7 @@ export const Route = createFileRoute('/coletivos/$slug')({
 function ColetivoPage() {
   const { slug } = Route.useParams()
   const coletivo = coletivos[slug]
+  const usarFundoExemplo = ['coletiva-perifericas', 'terreiro-egbe-omo-lomi', 'grupo-abre-caminho'].includes(slug)
 
   if (!coletivo) {
     return (
@@ -46,7 +47,7 @@ function ColetivoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-card text-tinta">
+    <div className={`min-h-screen text-tinta ${usarFundoExemplo ? "bg-[linear-gradient(110deg,#f1f0ef_0%,#faf9f8_100%)]" : "bg-card"}`}>
       <Navbar />
       <main className="mx-auto max-w-4xl px-5 py-16 sm:py-20">
         <a href="/#coletivos" className="text-sm font-semibold text-barro-600 hover:underline">← Voltar aos coletivos</a>
