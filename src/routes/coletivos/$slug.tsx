@@ -59,7 +59,7 @@ export const Route = createFileRoute('/coletivos/$slug')({
 function ColetivoPage() {
   const { slug } = Route.useParams()
   const coletivo = coletivos[slug]
-  const usarFundoExemplo = ['coletiva-perifericas', 'terreiro-egbe-omo-lomi', 'grupo-abre-caminho'].includes(slug)
+  const usarFundoExemplo = ['coletiva-perifericas', 'espaco-cultural-das-marias', 'terreiro-egbe-omo-lomi', 'grupo-abre-caminho'].includes(slug)
 
   if (!coletivo) {
     return (
