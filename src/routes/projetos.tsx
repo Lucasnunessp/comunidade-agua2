@@ -45,6 +45,12 @@ function ProjetosPage() {
       summary: 'O Egbé que Ensina é um projeto dedicado à educação social de crianças e adolescentes, promovendo oportunidades de aprendizagem, desenvolvimento e formação cidadã.',
       text: 'O Egbé que Ensina é um projeto dedicado à educação social de crianças e adolescentes, promovendo oportunidades de aprendizagem, desenvolvimento e formação cidadã. A iniciativa busca proporcionar experiências educativas que contribuam para a construção de conhecimentos, o fortalecimento da autonomia e a convivência coletiva. Além disso, reconhece a importância da educação como instrumento de transformação social e desenvolvimento comunitário.',
     },
+    {
+      id: 'tic-tac', title: 'Bloco Tic-Tac',
+      summary: 'O bloco carnavalesco Tic-Tac surge com a proposta de enriquecer o carnaval na comunidade do Ibura, trazendo mais uma opção de bloco de rua e promovendo a descentralização dessa festividade tão importante.',
+      text: 'O bloco carnavalesco Tic-Tac surge com a proposta de enriquecer o carnaval na comunidade do Ibura, trazendo mais uma opção de bloco de rua e promovendo a descentralização dessa festividade tão importante. Reconhecendo que muitos integrantes do Espaço Cultural das Marias e do Centro Cultural Comunidade das Águas estão frequentemente envolvidos nas grandes celebrações, como o carnaval, o bloco Tic-Tac foi criado para garantir que essas pessoas também possam desfrutar da folia e celebrar a cultura local.\\n\\nO bloco se propõe a ser um espaço de diversão e inclusão, onde os moradores da comunidade podem se reunir, dançar e vivenciar a alegria do carnaval em um ambiente acolhedor e festivo. Com ritmos contagiantes e uma programação que valoriza a diversidade cultural, o Tic-Tac é mais do que apenas um bloco; é uma celebração da união e da identidade do Ibura.\\n\\nAtravés de sua atuação, o bloco Tic-Tac reafirma a importância da participação comunitária nas festividades, promovendo um carnaval que é acessível e representativo, onde todos têm a oportunidade de brilhar e se divertir. Com isso, busca fortalecer os laços sociais e culturais da região, transformando o carnaval em um momento de celebração coletiva e pertencimento.',
+      highlight: 'Porque nosso tempo é outro!',
+    },
   ];
   return (
     <div className="min-h-screen bg-card text-tinta">
@@ -64,7 +70,12 @@ function ProjetosPage() {
               </Button>
             </div>
             {expanded[projeto.id] && <div id={`${projeto.id}-details`} className="mt-6">
-              <p className="text-lg leading-8 text-tinta/80">{projeto.text}</p>
+              <p className="whitespace-pre-line text-lg leading-8 text-tinta/80">{projeto.text}</p>
+              {projeto.highlight && (
+                <p className="mt-6 text-xl font-semibold leading-8 text-tinta sm:text-2xl">
+                  {projeto.highlight}
+                </p>
+              )}
               {projeto.id === 'feira' && <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {feiraFotos.map((foto, index) => <img key={foto} src={foto} alt={`Feira do Troca — foto ${index + 1}`} className="aspect-square w-full rounded-lg object-cover" loading="lazy" />)}
               </div>}
