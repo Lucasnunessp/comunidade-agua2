@@ -6,6 +6,7 @@ import marias from '@/assets/coletivo-marias.png'
 import egbe from '@/assets/coletivo-egbe.png'
 import abreCaminho from '@/assets/coletivo-abre-caminho.png'
 import lucasMarafa from '@/assets/lucas-marafa.jpg'
+import ouroOxum from '@/assets/ouro-oxum.jpg'
 
 const coletivos: Record<string, { nome: string; descricao: string; logo: string; site?: string; instagram?: string; youtube?: string; projetos?: { titulo: string; descricao: string; link?: string; destaque?: string; imagem?: string }[] }> = {
   'coletiva-perifericas': {
@@ -23,6 +24,7 @@ const coletivos: Record<string, { nome: string; descricao: string; logo: string;
     descricao: 'O Espaço Cultural das Marias, fundado em 2016, tem como objetivo movimentar a cultura no Ibura, criando suportes para compartilhar e apoiar artistas locais. A iniciativa articula espaços para ensaios, estabelece redes colaborativas e produz eventos e conteúdos audiovisuais. Um dos projetos mais recentes, Cultura de Favela, inclui a produção de vídeos e podcasts com artistas, além de ações de divulgação nas redes sociais. O Espaço também está em processo de desenvolvimento de um projeto para criar um espaço físico dedicado à produção cultural nas periferias. Além disso, a equipe atua em áreas como fotografia, audiovisual, produção cultural e organização de eventos e feiras pretas, sempre buscando valorizar e enaltecer os criadores de cultura do território.',
     projetos: [{
       titulo: 'Ouro de Oxum',
+      imagem: ouroOxum,
       descricao: '"O Ouro de Oxum" é um projeto marcante produzido pelo Espaço Cultural das Marias em 2021, que apresenta uma performance envolvente de Lua Maria. Este projeto busca celebrar e valorizar a cultura afro-brasileira, explorando a riqueza das tradições e a ancestralidade através da arte. A performance de Lua Maria é um convite à reflexão sobre a importância de Oxum, a orixá das águas doces, da fertilidade e do amor, simbolizando também a força feminina e a conexão com a natureza.',
       link: 'https://youtu.be/lkGoEO8OGmg?is=IBZs9d0a1So_rskv',
     }, {
@@ -145,7 +147,7 @@ function ColetivoPage() {
                 {projeto.destaque}
               </p>
             )}
-            {projeto.imagem && <img src={projeto.imagem} alt="Lucas Marafa" className="mt-5 h-auto w-full max-w-[12rem] rounded-xl object-cover" />}
+            {projeto.imagem && <img src={projeto.imagem} alt={projeto.titulo === "Ouro de Oxum" ? "Representação artística de Oxum" : "Lucas Marafa"} className="mt-5 h-auto w-full max-w-[12rem] rounded-xl object-cover" />}
             {projeto.link && <a
               href={projeto.link}
               target="_blank"
