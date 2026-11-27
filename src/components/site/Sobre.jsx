@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import imagemSobre from '@/assets/imagem4.png'
 
 // texto retirado da seção "Sobre Nós" do site original
 export default function Sobre() {
@@ -40,8 +41,13 @@ export default function Sobre() {
           </p>
         </div>
 
-        {/* Espaço reservado para a imagem que será adicionada ao lado do texto. */}
-        <div className="hidden min-h-[420px] lg:block" aria-hidden="true" />
+        <div className="w-full">
+          <img
+            src={imagemSobre}
+            alt="Celebração comunitária com crianças, jovens e moradores reunidos em uma atividade cultural"
+            className="h-auto max-h-[620px] w-full rounded-sm object-cover shadow-lg"
+          />
+        </div>
       </motion.div>
     </section>
   )
