@@ -45,7 +45,7 @@ export default function Sobre() {
           <img
             src={imagemSobre}
             alt="Celebração comunitária com crianças, jovens e moradores reunidos em uma atividade cultural"
-            className="aspect-[1.07/1] w-full rounded-sm object-cover shadow-lg"
+            className="aspect-[1.07/1] w-full rounded-xl object-cover shadow-lg"
           />
         </div>
       </motion.div>
