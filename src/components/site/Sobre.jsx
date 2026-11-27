@@ -10,7 +10,7 @@ export default function Sobre() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7 }}
-        className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12"
+        className="mx-auto grid max-w-[1300px] items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12"
       >
         <div className="max-w-3xl">
           <h2 className="text-6xl font-light sm:text-7xl">Sobre Nós.</h2>
@@ -45,7 +45,7 @@ export default function Sobre() {
           <img
             src={imagemSobre}
             alt="Celebração comunitária com crianças, jovens e moradores reunidos em uma atividade cultural"
-            className="h-auto max-h-[620px] w-full rounded-sm object-cover shadow-lg"
+            className="aspect-[1.07/1] w-full rounded-sm object-cover shadow-lg"
           />
         </div>
       </motion.div>
